@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TUNÁLOE | Innovación biotecnológica</title>
+<meta name="description" content="TUNÁLOE: hidrogel y recubrimiento bioactivo para protección hídrica y térmica de cultivos locales.">
+<style>
+:root{
+ --bg:#f0fdf4; --card:#ffffff; --ink:#123226; --muted:#557064;
+ --green:#047857; --green2:#10b981; --lime:#84cc16; --dark:#022c22;
+ --line:#d1fae5; --shadow:0 18px 50px rgba(6,78,59,.10);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:
+ radial-gradient(circle at 10% 5%,rgba(16,185,129,.14),transparent 25%),
+ radial-gradient(circle at 90% 12%,rgba(132,204,22,.12),transparent 23%),
+ linear-gradient(180deg,#ecfdf5 0,#f7fee7 35%,#f0fdf4 100%);line-height:1.65}
+a{color:inherit}
+.container{width:min(1160px,92%);margin:auto}
+.nav{position:sticky;top:0;z-index:50;background:rgba(2,44,34,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(167,243,208,.2)}
+.navin{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px}
+.brand{font-weight:900;color:#ecfdf5;letter-spacing:.5px;text-decoration:none;font-size:20px}
+.brand span{color:#86efac}
+.navlinks{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+.navlinks a{text-decoration:none;color:#d1fae5;font-size:13px;font-weight:700}
+.navlinks a:hover{color:white}
+.hero{min-height:690px;display:grid;place-items:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(16,185,129,.24),transparent 68%);right:-120px;top:-160px}
+.hero:after{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(132,204,22,.15),transparent 68%);left:-170px;bottom:-170px}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:45px;align-items:center}
+.kicker{display:inline-flex;gap:8px;align-items:center;padding:8px 13px;border:1px solid #a7f3d0;background:rgba(255,255,255,.75);border-radius:999px;color:#065f46;font-weight:800;font-size:13px}
+h1{font-size:clamp(42px,6vw,76px);line-height:.98;margin:18px 0;color:var(--dark);letter-spacing:-2px}
+.hero h1 em{font-style:normal;color:var(--green)}
+.lead{font-size:20px;color:#365d4d;max-width:720px}
+.hero-card{background:rgba(255,255,255,.82);border:1px solid #bbf7d0;border-radius:30px;padding:26px;box-shadow:var(--shadow);position:relative}
+.hero-card .leaf{font-size:100px;text-align:center;filter:drop-shadow(0 10px 20px rgba(4,120,87,.16))}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.badge{padding:12px;border-radius:16px;background:#ecfdf5;border:1px solid #d1fae5;text-align:center}
+.badge strong{display:block;font-size:24px;color:#047857}
+section{padding:82px 0}
+.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:30px}
+.section-head h2{font-size:36px;line-height:1.05;margin:0;color:var(--dark)}
+.section-head p{max-width:600px;color:var(--muted);margin:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:24px;padding:25px;box-shadow:0 10px 35px rgba(6,78,59,.07)}
+.card h3{margin-top:0;color:#065f46}
+.icon{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:#dcfce7;font-size:22px;margin-bottom:15px}
+.highlight{border-left:5px solid var(--green2);padding:16px 18px;background:#f0fdf4;border-radius:0 16px 16px 0}
+.question{font-size:19px;font-weight:800;color:#064e3b}
+.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:20px;background:#022c22;color:#bbf7d0;padding:18px;border-radius:16px;overflow:auto}
+.timeline{display:grid;gap:14px}
+.step{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:start}
+.step .num{width:52px;height:52px;border-radius:50%;background:#047857;color:white;display:grid;place-items:center;font-weight:900}
+.step h3{margin:0 0 4px}
+.chart{background:white;border:1px solid var(--line);border-radius:22px;padding:12px;overflow:auto}
+.chart svg{width:100%;height:auto;display:block}
+.metric{font-size:42px;font-weight:900;color:#047857;line-height:1}
+.metric small{font-size:14px;color:#557064;font-weight:700}
+.data-table{border-collapse:collapse;width:100%;font-size:13px;background:white}
+.data-table th{background:#065f46;color:white;text-align:left;padding:10px;position:sticky;top:0}
+.data-table td{padding:9px;border-bottom:1px solid #dcfce7;vertical-align:top}
+.data-table tr:nth-child(even) td{background:#f7fee7}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid #a7f3d0;background:white;padding:10px 14px;border-radius:999px;font-weight:800;color:#065f46;cursor:pointer}
+.tab.active{background:#047857;color:white}
+.tabpanel{display:none}
+.tabpanel.active{display:block}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery figure{margin:0;background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 8px 24px rgba(6,78,59,.07)}
+.gallery img{width:100%;height:230px;object-fit:cover;display:block}
+.gallery figcaption{padding:13px 15px;font-size:13px;color:#476557}
+.material-img{height:220px;object-fit:cover;width:100%;border-radius:16px;margin-bottom:12px}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.scale div{padding:15px;border-radius:16px;background:#ecfdf5;border:1px solid #bbf7d0}
+.scale b{font-size:25px;color:#047857}
+.notice{background:#022c22;color:#d1fae5;border-radius:26px;padding:30px}
+.notice strong{color:#86efac}
+.footer{background:#022c22;color:#ccefe0;padding:45px 0}
+.footer a{color:#86efac}
+.small{font-size:13px;color:#678073}
+@media(max-width:850px){
+ .hero-grid,.grid2{grid-template-columns:1fr}
+ .grid3,.gallery{grid-template-columns:1fr 1fr}
+ .navlinks{display:none}
+ .hero{min-height:auto;padding:70px 0}
+ .badges{grid-template-columns:1fr 1fr 1fr}
+ .section-head{display:block}
+}
+@media(max-width:560px){
+ .grid3,.gallery{grid-template-columns:1fr}
+ .scale{grid-template-columns:1fr 1fr}
+ h1{font-size:48px}
+ .badges{grid-template-columns:1fr}
+ section{padding:58px 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+ <div class="container navin">
+  <a class="brand" href="#inicio">TUNÁLOE <span>🌿</span></a>
+  <div class="navlinks">
+   <a href="#problema">Problema</a><a href="#ciencia">Ciencia</a><a href="#metodo">Método</a>
+   <a href="#resultados">Resultados</a><a href="#evidencias">Evidencias</a><a href="#conclusiones">Conclusiones</a>
+  </div>
+ </div>
+</nav>
+
+<header id="inicio" class="hero">
+ <div class="container hero-grid">
+  <div>
+   <div class="kicker">🌱 EUREKA – 2026 · Indagación experimental</div>
+   <h1><em>TUNÁLOE</em><br>protección hídrica<br>y térmica</h1>
+   <p class="lead">Innovación biotecnológica mediante el uso de mucílagos de tuna y sábila, enriquecidos con almidón, glicerina y aserrín para la protección de cultivos locales.</p>
+   <div class="badges">
+    <div class="badge"><strong>20</strong>plántulas</div>
+    <div class="badge"><strong>21</strong>días de sequía</div>
+    <div class="badge"><strong>330</strong>min de frío</div>
+   </div>
+  </div>
+  <div class="hero-card">
+   <div class="leaf">🌵<br>🌿</div>
+   <h3>Una propuesta experimental de bajo costo</h3>
+   <p>El proyecto estudia dos funciones independientes: conservar humedad en el suelo y disminuir la caída de temperatura superficial de las hojas bajo bajas temperaturas controladas.</p>
+   <div class="highlight"><strong>Nota científica:</strong> los resultados corresponden a las condiciones experimentales del estudio y constituyen evidencia preliminar; no deben generalizarse directamente a todas las especies o condiciones agrícolas.</div>
+  </div>
+ </div>
+</header>
+
+<section id="problema">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">01 · PROBLEMATIZACIÓN</div><h2>¿Qué problema aborda?</h2></div>
+  <p>El informe plantea que las sequías prolongadas y las caídas repentinas de temperatura pueden afectar cultivos vulnerables y la agricultura familiar.</p></div>
+  <div class="grid2">
+   <article class="card"><div class="icon">💧</div><h3>Estrés hídrico</h3><p>Cuando no hay riego, el agua del suelo disminuye progresivamente. La investigación evalúa si TUNÁLOE-Hídrico permite conservar una mayor humedad del sustrato.</p><div class="question">¿Cómo afecta TUNÁLOE Hídrico a la retención de humedad del suelo de la lechuga sin riego?</div></article>
+   <article class="card"><div class="icon">❄️</div><h3>Estrés térmico</h3><p>Las bajas temperaturas pueden afectar la superficie foliar. El proyecto compara la temperatura de hojas tratadas y no tratadas dentro de un simulador.</p><div class="question">¿Cómo afecta TUNÁLOE Térmico a la temperatura superficial de la lechuga bajo bajas temperaturas controladas?</div></article>
+  </div>
+  <div class="card" style="margin-top:22px">
+   <h3>Hipótesis planteadas</h3>
+   <div class="grid2">
+    <p><strong>H1 · Hídrica:</strong> si se aplica 20 mL de TUNÁLOE-Hídrico al sustrato sin riego, se retendrá más humedad que en el control.</p>
+    <p><strong>H2 · Térmica:</strong> si se aplica 20 mL de TUNÁLOE-Térmico (10 mL al suelo + 10 mL foliar), la temperatura superficial será más alta que en el control durante la simulación de frío.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="ciencia">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">02 · FUNDAMENTO</div><h2>La ciencia detrás de TUNÁLOE</h2></div>
+  <p>El informe interpreta el comportamiento desde las propiedades de los mucílagos, la matriz del hidrogel y la transferencia de calor.</p></div>
+  <div class="grid3">
+   <article class="card"><div class="icon">🌵</div><h3>Mucílago de tuna</h3><p><em>Opuntia ficus-indica</em> aporta un hidrocoloide de naturaleza hidrofílica. El informe relaciona sus grupos funcionales con la interacción con moléculas de agua.</p></article>
+   <article class="card"><div class="icon">🌿</div><h3>Mucílago de sábila</h3><p><em>Aloe vera</em> aporta otro componente hidrocoloidal. En conjunto con almidón y glicerina se plantea una red capaz de almacenar agua y liberarla gradualmente.</p></article>
+   <article class="card"><div class="icon">🪵</div><h3>Aserrín + glicerina</h3><p>En la formulación térmica, el aserrín seco y poroso se interpreta como una barrera que puede disminuir el intercambio térmico; la glicerina se incorpora como parte de la formulación.</p></article>
+  </div>
+  <div class="grid2" style="margin-top:22px">
+   <div class="card"><h3>Formulación hídrica · Olla 1</h3><p><strong>3.25 g</strong> de almidón + <strong>65 mL</strong> de agua fría + <strong>3.25 mL</strong> de mucílago de tuna + <strong>3.25 mL</strong> de mucílago de sábila. Se calentó hasta la gelificación viscosa.</p></div>
+   <div class="card"><h3>Formulación térmica · Olla 2</h3><p><strong>65 mL</strong> de agua + <strong>3.25 mL</strong> de tuna + <strong>3.25 mL</strong> de sábila + <strong>1 mL</strong> de glicerina (20 gotas) + <strong>1.95 g</strong> de aserrín seco.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="metodo">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">03 · DISEÑO EXPERIMENTAL</div><h2>¿Cómo se investigó?</h2></div>
+  <p>Dos bloques independientes, cinco réplicas por condición y mediciones repetidas.</p></div>
+  <div class="timeline">
+   <div class="step"><div class="num">1</div><div><h3>Extracción de mucílagos</h3><p>Se recolectaron pencas de tuna y hojas de sábila. Se retiraron espinas y corteza con protección física; la pulpa se licuó y filtró por separado.</p></div></div>
+   <div class="step"><div class="num">2</div><div><h3>Síntesis de las dos formulaciones</h3><p>Se preparó una fórmula hídrica con almidón y otra térmica con glicerina y aserrín.</p></div></div>
+   <div class="step"><div class="num">3</div><div><h3>Bloque hídrico</h3><p>Grupo A: control. Grupo B: 20 mL de TUNÁLOE-Hídrico. Se suspendió el riego durante 21 días y se registró humedad cada dos días.</p></div></div>
+   <div class="step"><div class="num">4</div><div><h3>Bloque térmico</h3><p>Grupo C: control. Grupo D: 20 mL de TUNÁLOE-Térmico, divididos en 10 mL al suelo y 10 mL foliares. Se midió la temperatura a 0, 60, 120, 180 y 330 minutos.</p></div></div>
+  </div>
+  <div class="card" style="margin-top:24px">
+   <h3>Variables y control experimental</h3>
+   <div class="grid3">
+    <p><strong>20 plantas:</strong> misma variedad, edad aproximada de 4 semanas, tamaño y origen de vivero.</p>
+    <p><strong>5 réplicas:</strong> por cada condición experimental.</p>
+    <p><strong>Medición:</strong> humedad a 5 cm; temperatura a 7 cm y 90° respecto de la hoja seleccionada.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="resultados">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">04 · DATOS Y RESULTADOS</div><h2>Lo que muestran los datos</h2></div>
+  <p>Los promedios y desviaciones estándar permiten describir las tendencias y la variabilidad entre las cinco réplicas.</p></div>
+  <div class="grid3">
+   <div class="card"><div class="metric">28.0%<small> humedad al día 21 · Grupo B</small></div><p>Frente a 0.0% en el Grupo A de control.</p></div>
+   <div class="card"><div class="metric">7.5 °C<small> a 180 min · Grupo D</small></div><p>Frente a 4.7 °C en el control: diferencia de 2.8 °C.</p></div>
+   <div class="card"><div class="metric">5.8 °C<small> a 330 min · Grupo D</small></div><p>Frente a 2.7 °C en el control: diferencia de 3.1 °C.</p></div>
+  </div>
+
+  <div class="grid2" style="margin-top:22px">
+   <div class="chart"><svg viewBox="0 0 900 420" role="img" aria-label="Evolución de la humedad del suelo durante 21 días">
+    <style>
+      .grid{stroke:#d1fae5;stroke-width:1} .vgrid{stroke:#ecfdf5;stroke-width:1}
+      .tick{font:13px system-ui,sans-serif;fill:#475569} .legend{font:14px system-ui,sans-serif;fill:#1f2937;font-weight:600}
+      .axis{stroke:#64748b;stroke-width:1.5} .title{font:700 18px system-ui,sans-serif;fill:#064e3b}
+      .label{font:600 14px system-ui,sans-serif;fill:#334155}
+    </style>
+    <text x="450.0" y="20" text-anchor="middle" class="title">Evolución de la humedad del suelo durante 21 días</text>
+    <line x1="75" y1="24" x2="103" y2="24" stroke="#22c55e" stroke-width="4"/><text x="113" y="29" class="legend">Grupo A · Control</text><line x1="285" y1="24" x2="313" y2="24" stroke="#10b981" stroke-width="4"/><text x="323" y="29" class="legend">Grupo B · TUNÁLOE-Hídrico</text>
+    <line x1="75" y1="355.0" x2="865" y2="355.0" class="grid"/><text x="65" y="359.0" text-anchor="end" class="tick">-6.8</text><line x1="75" y1="295.0" x2="865" y2="295.0" class="grid"/><text x="65" y="299.0" text-anchor="end" class="tick">12.9</text><line x1="75" y1="235.0" x2="865" y2="235.0" class="grid"/><text x="65" y="239.0" text-anchor="end" class="tick">32.6</text><line x1="75" y1="175.0" x2="865" y2="175.0" class="grid"/><text x="65" y="179.0" text-anchor="end" class="tick">52.4</text><line x1="75" y1="115.0" x2="865" y2="115.0" class="grid"/><text x="65" y="119.0" text-anchor="end" class="tick">72.1</text><line x1="75" y1="55.0" x2="865" y2="55.0" class="grid"/><text x="65" y="59.0" text-anchor="end" class="tick">91.8</text><line x1="75.0" y1="55" x2="75.0" y2="355" class="vgrid"/><text x="75.0" y="380" text-anchor="middle" class="tick">1</text><line x1="154.0" y1="55" x2="154.0" y2="355" class="vgrid"/><text x="154.0" y="380" text-anchor="middle" class="tick">3</text><line x1="233.0" y1="55" x2="233.0" y2="355" class="vgrid"/><text x="233.0" y="380" text-anchor="middle" class="tick">5</text><line x1="312.0" y1="55" x2="312.0" y2="355" class="vgrid"/><text x="312.0" y="380" text-anchor="middle" class="tick">7</text><line x1="391.0" y1="55" x2="391.0" y2="355" class="vgrid"/><text x="391.0" y="380" text-anchor="middle" class="tick">9</text><line x1="470.0" y1="55" x2="470.0" y2="355" class="vgrid"/><text x="470.0" y="380" text-anchor="middle" class="tick">11</text><line x1="549.0" y1="55" x2="549.0" y2="355" class="vgrid"/><text x="549.0" y="380" text-anchor="middle" class="tick">13</text><line x1="628.0" y1="55" x2="628.0" y2="355" class="vgrid"/><text x="628.0" y="380" text-anchor="middle" class="tick">15</text><line x1="707.0" y1="55" x2="707.0" y2="355" class="vgrid"/><text x="707.0" y="380" text-anchor="middle" class="tick">17</text><line x1="786.0" y1="55" x2="786.0" y2="355" class="vgrid"/><text x="786.0" y="380" text-anchor="middle" class="tick">19</text><line x1="865.0" y1="55" x2="865.0" y2="355" class="vgrid"/><text x="865.0" y="380" text-anchor="middle" class="tick">21</text>
+    <line x1="75" y1="55" x2="75" y2="355" class="axis"/>
+    <line x1="75" y1="355" x2="865" y2="355" class="axis"/>
+    <polyline points="75.0,75.7 154.0,121.3 233.0,148.7 312.0,197.4 391.0,224.8 470.0,252.2 549.0,276.5 628.0,291.7 707.0,310.0 786.0,322.1 865.0,334.3" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="75.0" cy="75.7" r="5" fill="#22c55e"/><circle cx="154.0" cy="121.3" r="5" fill="#22c55e"/><circle cx="233.0" cy="148.7" r="5" fill="#22c55e"/><circle cx="312.0" cy="197.4" r="5" fill="#22c55e"/><circle cx="391.0" cy="224.8" r="5" fill="#22c55e"/><circle cx="470.0" cy="252.2" r="5" fill="#22c55e"/><circle cx="549.0" cy="276.5" r="5" fill="#22c55e"/><circle cx="628.0" cy="291.7" r="5" fill="#22c55e"/><circle cx="707.0" cy="310.0" r="5" fill="#22c55e"/><circle cx="786.0" cy="322.1" r="5" fill="#22c55e"/><circle cx="865.0" cy="334.3" r="5" fill="#22c55e"/><polyline points="75.0,75.7 154.0,90.9 233.0,109.2 312.0,124.4 391.0,137.2 470.0,144.5 549.0,149.9 628.0,179.1 707.0,209.6 786.0,227.8 865.0,249.1" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="75.0" cy="75.7" r="5" fill="#10b981"/><circle cx="154.0" cy="90.9" r="5" fill="#10b981"/><circle cx="233.0" cy="109.2" r="5" fill="#10b981"/><circle cx="312.0" cy="124.4" r="5" fill="#10b981"/><circle cx="391.0" cy="137.2" r="5" fill="#10b981"/><circle cx="470.0" cy="144.5" r="5" fill="#10b981"/><circle cx="549.0" cy="149.9" r="5" fill="#10b981"/><circle cx="628.0" cy="179.1" r="5" fill="#10b981"/><circle cx="707.0" cy="209.6" r="5" fill="#10b981"/><circle cx="786.0" cy="227.8" r="5" fill="#10b981"/><circle cx="865.0" cy="249.1" r="5" fill="#10b981"/>
+    <text x="450.0" y="408" text-anchor="middle" class="label">Tiempo (días)</text>
+    <text x="17" y="210.0" transform="rotate(-90 17 210.0)" text-anchor="middle" class="label">Humedad del suelo (%)</text>
+    </svg></div>
+   <div class="chart"><svg viewBox="0 0 900 420" role="img" aria-label="Evolución de la temperatura foliar bajo bajas temperaturas">
+    <style>
+      .grid{stroke:#d1fae5;stroke-width:1} .vgrid{stroke:#ecfdf5;stroke-width:1}
+      .tick{font:13px system-ui,sans-serif;fill:#475569} .legend{font:14px system-ui,sans-serif;fill:#1f2937;font-weight:600}
+      .axis{stroke:#64748b;stroke-width:1.5} .title{font:700 18px system-ui,sans-serif;fill:#064e3b}
+      .label{font:600 14px system-ui,sans-serif;fill:#334155}
+    </style>
+    <text x="450.0" y="20" text-anchor="middle" class="title">Evolución de la temperatura foliar bajo bajas temperaturas</text>
+    <line x1="75" y1="24" x2="103" y2="24" stroke="#22c55e" stroke-width="4"/><text x="113" y="29" class="legend">Grupo C · Control</text><line x1="285" y1="24" x2="313" y2="24" stroke="#10b981" stroke-width="4"/><text x="323" y="29" class="legend">Grupo D · TUNÁLOE-Térmico</text>
+    <line x1="75" y1="355.0" x2="865" y2="355.0" class="grid"/><text x="65" y="359.0" text-anchor="end" class="tick">1.8</text><line x1="75" y1="295.0" x2="865" y2="295.0" class="grid"/><text x="65" y="299.0" text-anchor="end" class="tick">4.5</text><line x1="75" y1="235.0" x2="865" y2="235.0" class="grid"/><text x="65" y="239.0" text-anchor="end" class="tick">7.2</text><line x1="75" y1="175.0" x2="865" y2="175.0" class="grid"/><text x="65" y="179.0" text-anchor="end" class="tick">10.0</text><line x1="75" y1="115.0" x2="865" y2="115.0" class="grid"/><text x="65" y="119.0" text-anchor="end" class="tick">12.7</text><line x1="75" y1="55.0" x2="865" y2="55.0" class="grid"/><text x="65" y="59.0" text-anchor="end" class="tick">15.4</text><line x1="75.0" y1="55" x2="75.0" y2="355" class="vgrid"/><text x="75.0" y="380" text-anchor="middle" class="tick">0</text><line x1="272.5" y1="55" x2="272.5" y2="355" class="vgrid"/><text x="272.5" y="380" text-anchor="middle" class="tick">60</text><line x1="470.0" y1="55" x2="470.0" y2="355" class="vgrid"/><text x="470.0" y="380" text-anchor="middle" class="tick">120</text><line x1="667.5" y1="55" x2="667.5" y2="355" class="vgrid"/><text x="667.5" y="380" text-anchor="middle" class="tick">180</text><line x1="865.0" y1="55" x2="865.0" y2="355" class="vgrid"/><text x="865.0" y="380" text-anchor="middle" class="tick">330</text>
+    <line x1="75" y1="55" x2="75" y2="355" class="axis"/>
+    <line x1="75" y1="355" x2="865" y2="355" class="axis"/>
+    <polyline points="75.0,75.7 272.5,183.1 470.0,251.0 667.5,290.5 865.0,334.3" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="75.0" cy="75.7" r="5" fill="#22c55e"/><circle cx="272.5" cy="183.1" r="5" fill="#22c55e"/><circle cx="470.0" cy="251.0" r="5" fill="#22c55e"/><circle cx="667.5" cy="290.5" r="5" fill="#22c55e"/><circle cx="865.0" cy="334.3" r="5" fill="#22c55e"/><polyline points="75.0,75.7 272.5,156.8 470.0,180.9 667.5,229.1 865.0,266.4" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="75.0" cy="75.7" r="5" fill="#10b981"/><circle cx="272.5" cy="156.8" r="5" fill="#10b981"/><circle cx="470.0" cy="180.9" r="5" fill="#10b981"/><circle cx="667.5" cy="229.1" r="5" fill="#10b981"/><circle cx="865.0" cy="266.4" r="5" fill="#10b981"/>
+    <text x="450.0" y="408" text-anchor="middle" class="label">Tiempo de exposición (min)</text>
+    <text x="17" y="210.0" transform="rotate(-90 17 210.0)" text-anchor="middle" class="label">Temperatura foliar promedio (°C)</text>
+    </svg></div>
+   <div class="chart"><svg viewBox="0 0 900 420" role="img" aria-label="Diferencia de humedad entre tratamiento y control">
+    <style>
+      .grid{stroke:#d1fae5;stroke-width:1} .vgrid{stroke:#ecfdf5;stroke-width:1}
+      .tick{font:13px system-ui,sans-serif;fill:#475569} .legend{font:14px system-ui,sans-serif;fill:#1f2937;font-weight:600}
+      .axis{stroke:#64748b;stroke-width:1.5} .title{font:700 18px system-ui,sans-serif;fill:#064e3b}
+      .label{font:600 14px system-ui,sans-serif;fill:#334155}
+    </style>
+    <text x="450.0" y="20" text-anchor="middle" class="title">Diferencia de humedad entre tratamiento y control</text>
+    <line x1="75" y1="24" x2="103" y2="24" stroke="#22c55e" stroke-width="4"/><text x="113" y="29" class="legend">Diferencia TUNÁLOE-Hídrico − Control</text>
+    <line x1="75" y1="355.0" x2="865" y2="355.0" class="grid"/><text x="65" y="359.0" text-anchor="end" class="tick">-3.3</text><line x1="75" y1="295.0" x2="865" y2="295.0" class="grid"/><text x="65" y="299.0" text-anchor="end" class="tick">6.3</text><line x1="75" y1="235.0" x2="865" y2="235.0" class="grid"/><text x="65" y="239.0" text-anchor="end" class="tick">16.0</text><line x1="75" y1="175.0" x2="865" y2="175.0" class="grid"/><text x="65" y="179.0" text-anchor="end" class="tick">25.6</text><line x1="75" y1="115.0" x2="865" y2="115.0" class="grid"/><text x="65" y="119.0" text-anchor="end" class="tick">35.3</text><line x1="75" y1="55.0" x2="865" y2="55.0" class="grid"/><text x="65" y="59.0" text-anchor="end" class="tick">44.9</text><line x1="75.0" y1="55" x2="75.0" y2="355" class="vgrid"/><text x="75.0" y="380" text-anchor="middle" class="tick">1</text><line x1="154.0" y1="55" x2="154.0" y2="355" class="vgrid"/><text x="154.0" y="380" text-anchor="middle" class="tick">3</text><line x1="233.0" y1="55" x2="233.0" y2="355" class="vgrid"/><text x="233.0" y="380" text-anchor="middle" class="tick">5</text><line x1="312.0" y1="55" x2="312.0" y2="355" class="vgrid"/><text x="312.0" y="380" text-anchor="middle" class="tick">7</text><line x1="391.0" y1="55" x2="391.0" y2="355" class="vgrid"/><text x="391.0" y="380" text-anchor="middle" class="tick">9</text><line x1="470.0" y1="55" x2="470.0" y2="355" class="vgrid"/><text x="470.0" y="380" text-anchor="middle" class="tick">11</text><line x1="549.0" y1="55" x2="549.0" y2="355" class="vgrid"/><text x="549.0" y="380" text-anchor="middle" class="tick">13</text><line x1="628.0" y1="55" x2="628.0" y2="355" class="vgrid"/><text x="628.0" y="380" text-anchor="middle" class="tick">15</text><line x1="707.0" y1="55" x2="707.0" y2="355" class="vgrid"/><text x="707.0" y="380" text-anchor="middle" class="tick">17</text><line x1="786.0" y1="55" x2="786.0" y2="355" class="vgrid"/><text x="786.0" y="380" text-anchor="middle" class="tick">19</text><line x1="865.0" y1="55" x2="865.0" y2="355" class="vgrid"/><text x="865.0" y="380" text-anchor="middle" class="tick">21</text>
+    <line x1="75" y1="55" x2="75" y2="355" class="axis"/>
+    <line x1="75" y1="355" x2="865" y2="355" class="axis"/>
+    <polyline points="75.0,334.3 154.0,272.1 233.0,253.5 312.0,185.1 391.0,155.3 470.0,114.2 549.0,75.7 628.0,104.3 707.0,129.2 786.0,141.6 865.0,160.2" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="75.0" cy="334.3" r="5" fill="#22c55e"/><circle cx="154.0" cy="272.1" r="5" fill="#22c55e"/><circle cx="233.0" cy="253.5" r="5" fill="#22c55e"/><circle cx="312.0" cy="185.1" r="5" fill="#22c55e"/><circle cx="391.0" cy="155.3" r="5" fill="#22c55e"/><circle cx="470.0" cy="114.2" r="5" fill="#22c55e"/><circle cx="549.0" cy="75.7" r="5" fill="#22c55e"/><circle cx="628.0" cy="104.3" r="5" fill="#22c55e"/><circle cx="707.0" cy="129.2" r="5" fill="#22c55e"/><circle cx="786.0" cy="141.6" r="5" fill="#22c55e"/><circle cx="865.0" cy="160.2" r="5" fill="#22c55e"/>
+    <text x="450.0" y="408" text-anchor="middle" class="label">Tiempo (días)</text>
+    <text x="17" y="210.0" transform="rotate(-90 17 210.0)" text-anchor="middle" class="label">Diferencia de humedad (puntos porcentuales)</text>
+    </svg></div>
+   <div class="chart"><svg viewBox="0 0 900 420" role="img" aria-label="Diferencia de temperatura foliar entre tratamiento y control">
+    <style>
+      .grid{stroke:#d1fae5;stroke-width:1} .vgrid{stroke:#ecfdf5;stroke-width:1}
+      .tick{font:13px system-ui,sans-serif;fill:#475569} .legend{font:14px system-ui,sans-serif;fill:#1f2937;font-weight:600}
+      .axis{stroke:#64748b;stroke-width:1.5} .title{font:700 18px system-ui,sans-serif;fill:#064e3b}
+      .label{font:600 14px system-ui,sans-serif;fill:#334155}
+    </style>
+    <text x="450.0" y="20" text-anchor="middle" class="title">Diferencia de temperatura foliar entre tratamiento y control</text>
+    <line x1="75" y1="24" x2="103" y2="24" stroke="#22c55e" stroke-width="4"/><text x="113" y="29" class="legend">Diferencia TUNÁLOE-Térmico − Control</text>
+    <line x1="75" y1="355.0" x2="865" y2="355.0" class="grid"/><text x="65" y="359.0" text-anchor="end" class="tick">-0.3</text><line x1="75" y1="295.0" x2="865" y2="295.0" class="grid"/><text x="65" y="299.0" text-anchor="end" class="tick">0.5</text><line x1="75" y1="235.0" x2="865" y2="235.0" class="grid"/><text x="65" y="239.0" text-anchor="end" class="tick">1.2</text><line x1="75" y1="175.0" x2="865" y2="175.0" class="grid"/><text x="65" y="179.0" text-anchor="end" class="tick">2.0</text><line x1="75" y1="115.0" x2="865" y2="115.0" class="grid"/><text x="65" y="119.0" text-anchor="end" class="tick">2.7</text><line x1="75" y1="55.0" x2="865" y2="55.0" class="grid"/><text x="65" y="59.0" text-anchor="end" class="tick">3.5</text><line x1="75.0" y1="55" x2="75.0" y2="355" class="vgrid"/><text x="75.0" y="380" text-anchor="middle" class="tick">0</text><line x1="272.5" y1="55" x2="272.5" y2="355" class="vgrid"/><text x="272.5" y="380" text-anchor="middle" class="tick">60</text><line x1="470.0" y1="55" x2="470.0" y2="355" class="vgrid"/><text x="470.0" y="380" text-anchor="middle" class="tick">120</text><line x1="667.5" y1="55" x2="667.5" y2="355" class="vgrid"/><text x="667.5" y="380" text-anchor="middle" class="tick">180</text><line x1="865.0" y1="55" x2="865.0" y2="355" class="vgrid"/><text x="865.0" y="380" text-anchor="middle" class="tick">330</text>
+    <line x1="75" y1="55" x2="75" y2="355" class="axis"/>
+    <line x1="75" y1="355" x2="865" y2="355" class="axis"/>
+    <polyline points="75.0,334.3 272.5,237.3 470.0,75.7 667.5,108.0 865.0,83.8" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="75.0" cy="334.3" r="5" fill="#22c55e"/><circle cx="272.5" cy="237.3" r="5" fill="#22c55e"/><circle cx="470.0" cy="75.7" r="5" fill="#22c55e"/><circle cx="667.5" cy="108.0" r="5" fill="#22c55e"/><circle cx="865.0" cy="83.8" r="5" fill="#22c55e"/>
+    <text x="450.0" y="408" text-anchor="middle" class="label">Tiempo de exposición (min)</text>
+    <text x="17" y="210.0" transform="rotate(-90 17 210.0)" text-anchor="middle" class="label">Diferencia de temperatura (°C)</text>
+    </svg></div>
+  </div>
+
+  <div class="notice" style="margin-top:24px">
+   <strong>Interpretación del informe:</strong> bajo las condiciones evaluadas, TUNÁLOE-Hídrico se asoció con una mayor retención de humedad del suelo y TUNÁLOE-Térmico con una menor disminución de la temperatura superficial foliar. El informe presenta estas conclusiones como evidencia experimental para las condiciones particulares del estudio.
+  </div>
+ </div>
+</section>
+
+<section id="tablas">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">05 · REGISTROS</div><h2>Datos experimentales</h2></div>
+  <p>Tablas tomadas del informe: cada condición cuenta con cinco réplicas.</p></div>
+  <div class="tabs">
+   <button class="tab active" data-tab="hc">Humedad · Control</button>
+   <button class="tab" data-tab="ht">Humedad · TUNÁLOE</button>
+   <button class="tab" data-tab="tc">Temperatura · Control</button>
+   <button class="tab" data-tab="tt">Temperatura · TUNÁLOE</button>
+  </div>
+  <div id="hc" class="tabpanel active"><div class="table-wrap"><table class="data-table"><thead><tr><th>Tiempo (Días)</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>PROMEDIO (%)</th><th>DESVIACIÓN ESTÁNDAR</th><th>Nivel de Daño Visible (Promedio)</th></tr></thead><tbody><tr><td>Día 1</td><td>85%</td><td>85%</td><td>85%</td><td>85%</td><td>85%</td><td>85.0%</td><td>± 0.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 3</td><td>71%</td><td>69%</td><td>70%</td><td>71%</td><td>69%</td><td>70.0%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 5</td><td>62%</td><td>60%</td><td>61%</td><td>62%</td><td>60%</td><td>61.0%</td><td>± 1.00</td><td>Nivel 1 (Daño leve foliar)</td></tr><tr><td>Día 7</td><td>46%</td><td>44%</td><td>45%</td><td>46%</td><td>44%</td><td>45.0%</td><td>± 1.00</td><td>Nivel 1 (Daño leve foliar)</td></tr><tr><td>Día 9</td><td>37%</td><td>35%</td><td>36%</td><td>37%</td><td>35%</td><td>36.0%</td><td>± 1.00</td><td>Nivel 1 (Daño leve foliar)</td></tr><tr><td>Día 11</td><td>28%</td><td>26%</td><td>27%</td><td>28%</td><td>26%</td><td>27.0%</td><td>± 1.00</td><td>Nivel 2 (Daño moderado)</td></tr><tr><td>Día 13</td><td>20%</td><td>18%</td><td>19%</td><td>20%</td><td>18%</td><td>19.0%</td><td>± 1.00</td><td>Nivel 3 (Daño severo lacio)</td></tr><tr><td>Día 15</td><td>15%</td><td>13%</td><td>14%</td><td>15%</td><td>13%</td><td>14.0%</td><td>± 1.00</td><td>Nivel 3 (Daño severo lacio)</td></tr><tr><td>Día 17</td><td>9%</td><td>7%</td><td>8%</td><td>9%</td><td>7%</td><td>8.0%</td><td>± 1.00</td><td>Nivel 3 (Clorosis avanzada)</td></tr><tr><td>Día 19</td><td>5%</td><td>3%</td><td>4%</td><td>5%</td><td>3%</td><td>4.0%</td><td>± 1.00</td><td>Nivel 3 (Secado avanzado)</td></tr><tr><td>Día 21</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td><td>0.0%</td><td>± 0.00</td><td>Nivel 4 (Colapso irreversible)</td></tr></tbody></table></div></div>
+  <div id="ht" class="tabpanel"><div class="table-wrap"><table class="data-table"><thead><tr><th>Tiempo (Días)</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>PROMEDIO (%)</th><th>DESVIACIÓN ESTÁNDAR</th><th>Nivel de Daño Visible (Promedio)</th></tr></thead><tbody><tr><td>Día 1</td><td>85%</td><td>85%</td><td>85%</td><td>85%</td><td>85%</td><td>85.0%</td><td>± 0.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 3</td><td>81%</td><td>79%</td><td>80%</td><td>81%</td><td>79%</td><td>80.0%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 5</td><td>75%</td><td>73%</td><td>74%</td><td>75%</td><td>73%</td><td>74.0%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 7</td><td>70%</td><td>68%</td><td>69%</td><td>70%</td><td>68%</td><td>69.0%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 9</td><td>65%</td><td>65%</td><td>64%</td><td>65%</td><td>65%</td><td>64.8%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 11</td><td>61%</td><td>63%</td><td>62%</td><td>63%</td><td>63%</td><td>62.4%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 13</td><td>61%</td><td>60%</td><td>60%</td><td>62%</td><td>60%</td><td>60.6%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 15</td><td>52%</td><td>50%</td><td>51%</td><td>52%</td><td>50%</td><td>51.0%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 17</td><td>42%</td><td>40%</td><td>41%</td><td>42%</td><td>40%</td><td>41.0%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 19</td><td>36%</td><td>34%</td><td>35%</td><td>36%</td><td>34%</td><td>35.0%</td><td>± 1.00</td><td>Nivel 0 (Sin daño visible)</td></tr><tr><td>Día 21</td><td>29%</td><td>27%</td><td>28%</td><td>29%</td><td>27%</td><td>28.0%</td><td>± 1.00</td><td>Nivel 1 (Flacidez leve base)</td></tr></tbody></table></div></div>
+  <div id="tc" class="tabpanel"><div class="table-wrap"><table class="data-table"><thead><tr><th>Tiempo (Minutos)</th><th>Temp. Sim</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>PROMEDIO (°C)</th><th>DESVIACIÓN ESTÁNDAR</th><th>Nivel de Daño (Promedio)</th></tr></thead><tbody><tr><td>0 min</td><td>12.0 °C</td><td>14.6°C</td><td>14.4°C</td><td>14.5°C</td><td>14.6°C</td><td>14.4°C</td><td>14.5 °C</td><td>± 0.10</td><td>Nivel 0 (Sin daño)</td></tr><tr><td>60 min</td><td>4.0 °C</td><td>9.8°C</td><td>9.4°C</td><td>9.6°C</td><td>9.8°C</td><td>9.4°C</td><td>9.6 °C</td><td>± 0.20</td><td>Nivel 1 (Flacidez leve)</td></tr><tr><td>120 min</td><td>2.5 °C</td><td>6.7°C</td><td>6.3°C</td><td>6.5°C</td><td>6.7°C</td><td>6.3°C</td><td>6.5 °C</td><td>± 0.20</td><td>Nivel 1 (Flacidez leve)</td></tr><tr><td>180 min</td><td>1.0 °C</td><td>4.9°C</td><td>4.5°C</td><td>4.7°C</td><td>4.9°C</td><td>4.5°C</td><td>4.7 °C</td><td>± 0.20</td><td>Nivel 2 (Daño moderado)</td></tr><tr><td>330 min</td><td>-2.0 °C</td><td>2.9°C</td><td>2.5°C</td><td>2.7°C</td><td>2.9°C</td><td>2.5°C</td><td>2.7 °C</td><td>± 0.20</td><td>Nivel 3 (Escarcha y laxitud)</td></tr></tbody></table></div></div>
+  <div id="tt" class="tabpanel"><div class="table-wrap"><table class="data-table"><thead><tr><th>Tiempo (Minutos)</th><th>Temp. Sim</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>PROMEDIO (°C)</th><th>DESVIACIÓN ESTÁNDAR</th><th>Nivel de Daño (Promedio)</th></tr></thead><tbody><tr><td>0 min</td><td>12.0 °C</td><td>14.5°C</td><td>14.5°C</td><td>14.5°C</td><td>14.5°C</td><td>14.5°C</td><td>14.5 °C</td><td>± 0.00</td><td>Nivel 0 (Sin daño)</td></tr><tr><td>60 min</td><td>4.0 °C</td><td>11.0°C</td><td>10.6°C</td><td>10.8°C</td><td>11.0°C</td><td>10.6°C</td><td>10.8 °C</td><td>± 0.20</td><td>Nivel 0 (Sin daño)</td></tr><tr><td>120 min</td><td>2.5 °C</td><td>9.9°C</td><td>9.5°C</td><td>9.7°C</td><td>9.9°C</td><td>9.5°C</td><td>9.7 °C</td><td>± 0.20</td><td>Nivel 0 (Sin daño)</td></tr><tr><td>180 min</td><td>1.0 °C</td><td>7.7°C</td><td>7.3°C</td><td>7.5°C</td><td>7.7°C</td><td>7.3°C</td><td>7.5 °C</td><td>± 0.20</td><td>Nivel 0 (Sin daño)</td></tr><tr><td>330 min</td><td>-2.0 °C</td><td>6.0°C</td><td>5.6°C</td><td>5.8°C</td><td>6.0°C</td><td>5.6°C</td><td>5.8 °C</td><td>± 0.20</td><td>Nivel 1 (Afectación en puntas)</td></tr></tbody></table></div></div>
+ </div>
+</section>
+
+<section id="escala">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">06 · EVALUACIÓN MORFOLÓGICA</div><h2>Escala de daño visible</h2></div>
+  <p>Se diseñó una escala numérica para sistematizar las observaciones cualitativas.</p></div>
+  <div class="scale">
+   <div><b>0</b><h3>Sin daño</h3><p>Hojas erguidas y firmes.</p></div>
+   <div><b>1</b><h3>Daño leve</h3><p>Flacidez incipiente.</p></div>
+   <div><b>2</b><h3>Moderado</h3><p>Hojas basales caídas.</p></div>
+   <div><b>3</b><h3>Severo</h3><p>Hojas lacias, arrugadas o con clorosis/deshidratación.</p></div>
+   <div><b>4</b><h3>Colapso</h3><p>Pérdida total de estructura foliar.</p></div>
+  </div>
+  <div class="card" style="margin-top:22px">
+   <h3>Comparación final</h3>
+   <div class="grid2">
+    <p><strong>Grupo A · Control:</strong> Día 21 → 0.0% de humedad y Nivel 4 de daño visible.</p>
+    <p><strong>Grupo B · TUNÁLOE-Hídrico:</strong> Día 21 → 28.0% de humedad y Nivel 1 de daño visible.</p>
+    <p><strong>Grupo C · Control:</strong> 330 min → 2.7 °C y Nivel 3.</p>
+    <p><strong>Grupo D · TUNÁLOE-Térmico:</strong> 330 min → 5.8 °C y Nivel 1.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="materiales">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">07 · RECURSOS</div><h2>Materiales e instrumentos</h2></div>
+  <p>El informe detalla los insumos orgánicos y los instrumentos utilizados para medir las variables.</p></div>
+  <div class="grid3">
+   <article class="card"><img src="assets/image6.png" alt="Materiales e instrumentos" loading="lazy"><h3>Materiales e instrumentos</h3><p>Síntesis visual de los recursos utilizados en el proyecto.</p></article><article class="card"><img src="assets/image7.jpeg" alt="Sustrato y contenedores" loading="lazy"><h3>Sustrato y contenedores</h3><p>Macetas estandarizadas con tierra de chacra local tamizada.</p></article><article class="card"><img src="assets/image8.jpeg" alt="Higrómetro digital" loading="lazy"><h3>Higrómetro digital</h3><p>Medición interdiaria de la humedad a 5 cm de profundidad.</p></article><article class="card"><img src="assets/image9.png" alt="Probeta graduada" loading="lazy"><h3>Probeta graduada</h3><p>Medición y fraccionamiento de fluidos y del hidrogel.</p></article><article class="card"><img src="assets/image10.jpeg" alt="Balanza digital" loading="lazy"><h3>Balanza digital</h3><p>Cuantificación de insumos sólidos.</p></article><article class="card"><img src="assets/image11.png" alt="Pincel fino" loading="lazy"><h3>Pincel fino</h3><p>Aplicación homogénea del recubrimiento foliar.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="evidencias">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">08 · ÁLBUM</div><h2>Evidencias del proceso</h2></div>
+  <p>Galería visual basada en las fotografías y figuras incorporadas en el informe.</p></div>
+  <div class="gallery">
+   <figure><img src="assets/image17.jpeg" alt="Extracción de la materia prima biológica: tuna." loading="lazy"><figcaption>Extracción de la materia prima biológica: tuna.</figcaption></figure><figure><img src="assets/image18.jpeg" alt="Preparación de la materia prima de sábila." loading="lazy"><figcaption>Preparación de la materia prima de sábila.</figcaption></figure><figure><img src="assets/image19.jpeg" alt="Proceso de calentamiento controlado." loading="lazy"><figcaption>Proceso de calentamiento controlado.</figcaption></figure><figure><img src="assets/image20.jpeg" alt="Preparación y aplicación del tratamiento." loading="lazy"><figcaption>Preparación y aplicación del tratamiento.</figcaption></figure><figure><img src="assets/image21.jpeg" alt="Aplicación de TUNÁLOE-Hídrico al sustrato." loading="lazy"><figcaption>Aplicación de TUNÁLOE-Hídrico al sustrato.</figcaption></figure><figure><img src="assets/image22.jpeg" alt="Medición de humedad del suelo con higrómetro." loading="lazy"><figcaption>Medición de humedad del suelo con higrómetro.</figcaption></figure><figure><img src="assets/image23.jpeg" alt="Aplicación de la fórmula experimental." loading="lazy"><figcaption>Aplicación de la fórmula experimental.</figcaption></figure><figure><img src="assets/image24.jpeg" alt="Trabajo experimental con las plántulas." loading="lazy"><figcaption>Trabajo experimental con las plántulas.</figcaption></figure><figure><img src="assets/image25.jpeg" alt="Medición de temperatura superficial foliar." loading="lazy"><figcaption>Medición de temperatura superficial foliar.</figcaption></figure><figure><img src="assets/image26.jpeg" alt="Simulación de bajas temperaturas." loading="lazy"><figcaption>Simulación de bajas temperaturas.</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<section id="conclusiones">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">09 · CIERRE</div><h2>Conclusiones y límites</h2></div>
+  <p>El proyecto reporta un potencial preliminar, acompañado de controles y limitaciones explícitas.</p></div>
+  <div class="grid2">
+   <article class="card"><h3>Conclusiones principales</h3>
+    <ul>
+     <li>El tratamiento hídrico alcanzó 28.0% de humedad promedio al día 21 frente a 0.0% en el control.</li>
+     <li>El tratamiento térmico presentó 7.5 °C a 180 min frente a 4.7 °C en el control.</li>
+     <li>A 330 min, el promedio fue 5.8 °C con TUNÁLOE-Térmico y 2.7 °C en el control.</li>
+     <li>La escala morfológica mostró menor nivel de daño visible en los grupos tratados bajo las condiciones del ensayo.</li>
+    </ul>
+   </article>
+   <article class="card"><h3>Limitaciones reconocidas</h3>
+    <ul>
+     <li>La humedad depende del área concreta donde se introduce el sensor.</li>
+     <li>La medición infrarroja puede verse afectada por distancia y ángulo.</li>
+     <li>Existe variabilidad biológica entre las plántulas.</li>
+     <li>Las condiciones fueron simuladas y controladas; se requiere evaluación adicional antes de extrapolar a otras especies o condiciones agrícolas.</li>
+    </ul>
+   </article>
+  </div>
+  <div class="card" style="margin-top:22px">
+   <h3>Control y disminución del error</h3>
+   <p>El informe describe estandarización de preparación y aplicación, homogeneidad de las plántulas, uso de los mismos instrumentos y procedimientos, cinco réplicas por condición, mediciones repetidas, promedios y desviación estándar.</p>
+  </div>
+ </div>
+</section>
+
+<section id="referencias">
+ <div class="container">
+  <div class="section-head"><div><div class="kicker">10 · REFERENCIAS</div><h2>Base bibliográfica</h2></div>
+  <p>Referencias citadas en el informe de indagación experimental.</p></div>
+  <div class="card">
+   <ol>
+    <li>Agbna, G. H. D., &amp; Zaidi, S. J. (2025). <em>Hydrogel performance in boosting plant resilience to water stress—A review.</em> Gels, 11(4), 276.</li>
+    <li>Chaves, M. M., Maroco, J. P., &amp; Pereira, J. S. (2003). <em>Understanding plant responses to drought—from genes to the whole plant.</em></li>
+    <li>Eshun, K., &amp; He, Q. (2004). <em>Aloe vera: A valuable ingredient...</em></li>
+    <li>García, A. L. et al. (2024). <em>Physicochemical and functional characterization of the mucilage obtained from cladodes of two Opuntia species.</em></li>
+    <li>Hincha, D. K., &amp; Zuther, E. (2014). <em>Plant cold acclimation and freezing tolerance.</em></li>
+    <li>Juurakko, C. L. et al. (2021). <em>Cold acclimation and prospects for cold-resilient crops.</em></li>
+    <li>Li, J. et al. (2023). <em>Drought resistance index screening and evaluation of lettuce under water deficit conditions...</em></li>
+    <li>Ministerio de Educación del Perú. (2026). <em>Bases Eureka 2026.</em></li>
+    <li>Olaiya, B. C. et al. (2023). <em>Utilization of sawdust composites in construction—A review.</em></li>
+    <li>Patra, P. U. A. et al. (2022). <em>Prospects of hydrogels in agriculture...</em></li>
+    <li>Salehi, E. et al. (2019). <em>Opuntia ficus-indica mucilage.</em></li>
+    <li>Skrzypczak, D. et al. (2020). <em>Biodegradable hydrogel materials for water storage in agriculture...</em></li>
+    <li>Surjushe, A. et al. (2008). <em>Aloe vera: A short review.</em></li>
+    <li>Torregrossa, F. et al. (2025). <em>Rheological and physical properties of mucilage hydrogels from cladodes of Opuntia ficus-indica...</em></li>
+   </ol>
+  </div>
+ </div>
+</section>
+
+<footer class="footer">
+ <div class="container">
+  <h2>TUNÁLOE 🌿</h2>
+  <p><strong>Feria Nacional de Ciencia y Tecnología · EUREKA 2026</strong></p>
+  <p>Institución Educativa Parroquial San José – Pomabamba</p>
+  <p>Integrantes: Campomanes Flores Deyher Gabriel · Moreno Moreno Quesney Ciro</p>
+  <p>Docente asesor: Castillo Roque, Luis Angel</p>
+  <p class="small">Sitio web elaborado a partir del informe de indagación experimental TUNÁLOE. Los resultados se presentan como evidencia experimental bajo las condiciones particulares del estudio.</p>
+ </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(btn => {
+ btn.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tabpanel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(btn.dataset.tab).classList.add('active');
+ });
+});
+</script>
+</body>
+</html>
